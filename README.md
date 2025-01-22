@@ -1,1 +1,2 @@
-# cool_project
+# NAI Projekt Streszczenia Książek dla biblioteki
+Modele użyte:
