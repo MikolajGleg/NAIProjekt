@@ -31,7 +31,7 @@ total_f1 = [0.0, 0.0, 0.0, 0.0]
 
 #Wyciągnij pierwsze 5 artykułów oraz ich dane streszczenia (reference_summary)
 for i, example in enumerate(dataset['train']):
-    if i >= 10:
+    if i >= 20:
         break
     document = example['article']
     reference_summary = example['highlights']
@@ -92,7 +92,7 @@ for i, example in enumerate(dataset['train']):
 
     #Interpretacja metryk ROUGE
     #--------------------------
-    #Precyzja (Precision): Jak wiele z tekstu kandydującego jest istotne lub poprawne. Wysoka precyzja wskazuje, że większość zawartości w tekście kandydującym jest również zawarta w tekście referencyjnym, co oznacza, że model nie wprowadził wiele nieistotnych informacji.
+    #Precyzja (Precision): Jak wiele z tekstu wygenerowanego jest istotne lub poprawne. Wysoka precyzja wskazuje, że większość zawartości w tekście kandydującym jest również zawarta w tekście referencyjnym, co oznacza, że model nie wprowadził wiele nieistotnych informacji.
     #Przykład: Jeśli streszczenie kandydujące zawiera dziesięć słów i 7 z nich jest również w streszczeniu referencyjnym, precyzja wynosi 0.7 (czyli 70%).
     #
     #Pamięć (Recall): Jak wiele z tekstu referencyjnego zostało uchwycone w tekście kandydującym. Wysoka pamięć wskazuje, że tekst kandydujący zawiera najważniejsze treści z tekstu referencyjnego, co jest kluczowe w zadaniach takich jak streszczenie, gdzie pominięcie kluczowych informacji jest problematyczne.
@@ -103,7 +103,7 @@ for i, example in enumerate(dataset['train']):
 
 
 # Podaj Średnie metryk
-num_documents = 10
+num_documents = 20
 average_precision = [x / num_documents for x in total_precision]
 average_recall = [x / num_documents for x in total_recall]
 average_f1 = [x / num_documents for x in total_f1]
