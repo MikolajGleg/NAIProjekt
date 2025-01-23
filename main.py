@@ -24,14 +24,14 @@ scorer = rouge_scorer.RougeScorer(['rouge1'], use_stemmer=True)
 #Wczytujemy nasz dataset CNN/Daily Mail artykułów i ich streszczeń
 dataset = load_dataset("cnn_dailymail", "3.0.0")
 
-score1Average = 0
-score2Average = 0
-score3Average = 0
-score4Average = 0
+#Średnia wszystkich metryk inicjalizacja
+total_precision = [0.0, 0.0, 0.0, 0.0]
+total_recall = [0.0, 0.0, 0.0, 0.0]
+total_f1 = [0.0, 0.0, 0.0, 0.0]
 
 #Wyciągnij pierwsze 5 artykułów oraz ich dane streszczenia (reference_summary)
 for i, example in enumerate(dataset['train']):
-    if i >= 20:
+    if i >= 10:
         break
     document = example['article']
     reference_summary = example['highlights']
@@ -50,7 +50,7 @@ for i, example in enumerate(dataset['train']):
     summary4 = summarizerModel4(document, max_length=130, min_length=30, do_sample=False)[0]['summary_text']
 
 
-    #Drukuj dokument, dane streszczenie oraz wygenerowane streszczenia
+    #Drukuj artykuł, dane streszczenie oraz wygenerowane streszczenia
     print(f"Document {i+1}:\n{document}\n")
     print(f"Reference Summary {i+1}:\n{reference_summary}\n")
     print(f"Model 1 Summary:\n{summary1}\n")
@@ -65,6 +65,22 @@ for i, example in enumerate(dataset['train']):
     scores2 = scorer.score(reference_summary, summary2)
     scores3 = scorer.score(reference_summary, summary3)
     scores4 = scorer.score(reference_summary, summary4)
+
+    #Zbierz na średnią wszystkich metryk
+    total_precision[0] += scores1['rouge1'].precision
+    total_precision[1] += scores2['rouge1'].precision
+    total_precision[2] += scores3['rouge1'].precision
+    total_precision[3] += scores4['rouge1'].precision
+
+    total_recall[0] += scores1['rouge1'].recall
+    total_recall[1] += scores2['rouge1'].recall
+    total_recall[2] += scores3['rouge1'].recall
+    total_recall[3] += scores4['rouge1'].recall
+
+    total_f1[0] += scores1['rouge1'].fmeasure
+    total_f1[1] += scores2['rouge1'].fmeasure
+    total_f1[2] += scores3['rouge1'].fmeasure
+    total_f1[3] += scores4['rouge1'].fmeasure
 
     #Drukuj ROUGE-1 scores dla wszystkich modeli
     print(f"Document {i+1} ROUGE-1 Scores:")
@@ -85,3 +101,15 @@ for i, example in enumerate(dataset['train']):
     #F1-Score (Wskaźnik F1): Wynik F1 balansuje precyzję i pamięć, dostarczając miary, która uwzględnia fałszywe alarmy (nieistotne treści zawarte) i fałszywe negatywy (istotne treści pominięte). Jest to szczególnie przydatne, gdy chcemy zapewnić zarówno wysoką trafność, jak i wszechstronność w wygenerowanym tekście.
     #Przykład: Korzystając z precyzji 70% i pamięci 58% z powyższych przykładów, wskaźnik F1 wynosiłby około 0.64 (czyli 64%).
 
+
+# Podaj Średnie metryk
+num_documents = 10
+average_precision = [x / num_documents for x in total_precision]
+average_recall = [x / num_documents for x in total_recall]
+average_f1 = [x / num_documents for x in total_f1]
+
+print("Average ROUGE-1 Scores for all models:")
+print(f"Model 1 - Average Precision: {average_precision[0]}, Average Recall: {average_recall[0]}, Average F1 Score: {average_f1[0]}")
+print(f"Model 2 - Average Precision: {average_precision[1]}, Average Recall: {average_recall[1]}, Average F1 Score: {average_f1[1]}")
+print(f"Model 3 - Average Precision: {average_precision[2]}, Average Recall: {average_recall[2]}, Average F1 Score: {average_f1[2]}")
+print(f"Model 4 - Average Precision: {average_precision[3]}, Average Recall: {average_recall[3]}, Average F1 Score: {average_f1[3]}")
