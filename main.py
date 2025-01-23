@@ -28,10 +28,26 @@ print(summarizerModel3(TEXT, max_length=130, min_length=30, do_sample=False))
 
 #MODEL 4
 
-
 summarizerModel4 = pipeline("summarization", model='it5/it5-base-news-summarization')
 
 print(summarizerModel4(TEXT, max_length=130, min_length=30, do_sample=False))
 
 
+#Porównaj modele używając ROUGE
+
+
+
+from datasets import load_dataset
+
+# Load the CNN/Daily Mail dataset
+dataset = load_dataset("cnn_dailymail", "3.0.0")
+
+# Extract documents and their reference summaries
+for example in dataset['train']:
+    document = example['article']
+    reference_summary = example['highlights']
+    # Use these for evaluating your model
+    print("Document:", document)
+    print("Reference Summary:", reference_summary)
+    break
 
