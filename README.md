@@ -1,11 +1,13 @@
 # NAI Projekt - Streszczanie Artykułów CNN/Daily Mail
+![alt text](https://obgyn-media.coloradowomenshealth.com/daily-mail-square-logo.png)
+
 Modele użyte:  
 https://huggingface.co/facebook/bart-large-cnn  
 https://huggingface.co/Falconsai/text_summarization  
 https://huggingface.co/pszemraj/led-large-book-summary  
 https://huggingface.co/gsarti/it5-base-news-summarization  
 
-Dane o artykułach wzięte z:
+Dane o artykułach wzięte z:  
 https://huggingface.co/datasets/ccdv/cnn_dailymail
 
 # Instrukcje Użycia  
