@@ -8,7 +8,7 @@ https://huggingface.co/pszemraj/led-large-book-summary
 https://huggingface.co/gsarti/it5-base-news-summarization  
 
 Dane o artykułach wzięte z:  
-https://huggingface.co/datasets/ccdv/cnn_dailymail
+https://huggingface.co/datasets/abisee/cnn_dailymail
 
 # Instrukcje Użycia  
 W folderze którym chcemy otworzyć projekt:  
