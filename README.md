@@ -8,7 +8,7 @@ https://huggingface.co/pszemraj/led-large-book-summary
 W folderze którym chcemy otworzyć projekt:  
 1)Otwieramy cmd  
 2)Wpisujemy:  
-`git clone`   
+`git clone https://github.com/MikolajGleg/NAIProjekt.git`   
 3)Zainstaluj python przez linka poniżej (troche starsza wersja aby pytorch był kompatybilny)  
 [insaller python ]([https://www.example.com](https://www.python.org/downloads/release/python-3100/  ))  
 
