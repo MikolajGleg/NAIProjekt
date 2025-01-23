@@ -3,6 +3,7 @@ Modele użyte:
 https://huggingface.co/facebook/bart-large-cnn  
 https://huggingface.co/Falconsai/text_summarization  
 https://huggingface.co/pszemraj/led-large-book-summary  
+https://huggingface.co/gsarti/it5-base-news-summarization  
 
 # Instrukcje Użycia  
 W folderze którym chcemy otworzyć projekt:  
