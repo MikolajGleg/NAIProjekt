@@ -1,5 +1,6 @@
 # NAI Projekt - Streszczanie Artykułów CNN/Daily Mail
-![alt text](https://obgyn-media.coloradowomenshealth.com/daily-mail-square-logo.png)
+<img src="[drawing.jpg](https://obgyn-media.coloradowomenshealth.com/daily-mail-square-logo.png)" alt="drawing" width="30%"/>
+
 
 Modele użyte:  
 https://huggingface.co/facebook/bart-large-cnn  
