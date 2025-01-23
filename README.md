@@ -17,6 +17,7 @@ W folderze którym chcemy otworzyć projekt:
 `py get-pip.py`  
 `py -m pip install torch`  
 `py -m pip install transformers`   
+`py -m pip install rouge_score`   
 
 5)Końcowym krokiem jest wpisanie komendy:  
 **`py ./main.py`**  
