@@ -1,15 +1,20 @@
-# NAI Projekt - Streszczanie Tekstów dla Biblioteki
+# NAI Projekt - Streszczanie Artykułów CNN/Daily Mail
+<img src="https://obgyn-media.coloradowomenshealth.com/daily-mail-square-logo.png" alt="drawing" width="30%"/>
+
 Modele użyte:  
 https://huggingface.co/facebook/bart-large-cnn  
 https://huggingface.co/Falconsai/text_summarization  
 https://huggingface.co/pszemraj/led-large-book-summary  
 https://huggingface.co/gsarti/it5-base-news-summarization  
 
+Dane o artykułach wzięte z:  
+https://huggingface.co/datasets/abisee/cnn_dailymail
+
 # Instrukcje Użycia  
 W folderze którym chcemy otworzyć projekt:  
 1)Otwieramy cmd  
 2)Wpisujemy:  
-`git clone https://github.com/MikolajGleg/NAIProjekt.git`   
+`git clone https://github.com/MikolajGleg/NAIProjekt.git` lub ściągamy zip i odpakowujemy.  
 3)Zainstaluj python przez linka poniżej (troche starsza wersja aby pytorch był kompatybilny)  
 [installer python ](https://www.python.org/downloads/release/python-3100/  )  
 
